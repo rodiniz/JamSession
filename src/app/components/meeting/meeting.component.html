@@ -6,6 +6,7 @@
 (toogleMic)="toogleMic()"
 (leaveMeeting)="leaveMeeting()"
 (startRecording)="startStopRecording()"
+(startRecordingAudio)="startStopRecordingAudio()"
 #topbar
 ></app-top-bar>
 
@@ -24,7 +25,7 @@
        
     </div>
 
-   
+    
 </div>
 
 <div
@@ -46,5 +47,28 @@
       id="participant-screen-container"
       style="width:360px;aspect-ratio: 16/9;border-radius: 10px;display: none;"
       ></div>
+    </div>
+
+    <div class="chat-section" role="complementary" aria-label="Chat">
+        <div class="chat-header">
+            <h2>Chat</h2>
+        </div>
+        <div class="chat-messages" role="log" aria-live="polite">
+            <!-- Messages will be populated here -->
+        </div>
+        <div class="chat-input-container">
+            <input 
+                type="text" 
+                class="chat-input" 
+                placeholder="Type your message..." 
+                aria-label="Type a message"
+            >
+            <button 
+                class="send-button" 
+                aria-label="Send message"
+            >
+                Send
+            </button>
+        </div>
     </div>
   </div>

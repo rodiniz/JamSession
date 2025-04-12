@@ -9,7 +9,8 @@ import { Meeting } from '@videosdk.live/js-sdk';
   styleUrl: './top-bar.component.css'
 })
 export class TopBarComponent {
- 
+isRecordingAudio: boolean = false;
+
   @Input () meetingId: string = '';
   @Input() isRecording: boolean = false;
   @Input() isWebcamOn: boolean = false;
@@ -19,10 +20,15 @@ export class TopBarComponent {
   @Output() toggleScreenShare = new EventEmitter();
   @Output() leaveMeeting = new EventEmitter();
   @Output() startRecording = new EventEmitter();
-
+  @Output() startRecordingAudio = new EventEmitter();
 
   constructor() {}
-
+  
+  fireStartStopRecordingAudio() {
+    this.isRecordingAudio = !this.isRecordingAudio;
+    this.startRecordingAudio.emit();
+  }
+     
   fireToggleWebcam() {
     this.isWebcamOn = !this.isWebcamOn;
     this.toogleWebcam.emit();

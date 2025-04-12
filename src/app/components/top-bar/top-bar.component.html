@@ -20,6 +20,14 @@ Meeting ID: {{ meetingId }}<br>
       <span class="material-icons">fiber_manual_record</span> 
       
   </button>
+
+  <button class="toolbar-button"
+    [class.active]="isRecordingAudio"
+    [class.inactive]="!isRecordingAudio" (click)="fireStartStopRecordingAudio()"
+    data-tooltip="Start Recording" aria-label="Start Recording">
+    <span class="material-icons">music_note</span> 
+    
+  </button>
   
   <button class="toolbar-button" data-tooltip="Chat" aria-label="Open Chat">
       <span class="material-icons">chat</span>

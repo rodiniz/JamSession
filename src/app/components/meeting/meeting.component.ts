@@ -39,6 +39,7 @@ export class MeetingComponent implements OnInit{
   isMicOn!: boolean;
   router = inject(Router);
   recordingStarted: boolean = false;
+  isRecordingAudio: boolean = false;
   mics: any[] = [];
   micSelected= new FormControl();
   async ngOnInit(): Promise<void> {
@@ -433,6 +434,31 @@ export class MeetingComponent implements OnInit{
   leaveMeeting() {
     this.meeting.leave();
     this.router.navigate(['']);   
+  }
+  startStopRecordingAudio(){
+    if(this.isRecordingAudio){
+      this.meeting.stopRecording();
+      this.isRecordingAudio = false;
+      return;
+    }
+    this.isRecordingAudio = true;    
+    let config = {
+      layout: {
+        type: 'GRID',
+        priority: "SPEAKER",
+        gridSize: 4,
+      },
+      theme: "DARK",
+      mode: "audio",
+      quality: "high",
+      orientation: "landscape"
+    };
+    try{     
+      // @ts-ignore
+      this.meeting?.startRecording(null,null,config);
+    }catch(e){
+      alert(e);
+    }
   }
 
   startStopRecording() {
