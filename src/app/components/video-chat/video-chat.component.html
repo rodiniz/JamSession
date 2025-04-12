@@ -1,0 +1,50 @@
+<div class="video-chat-container">
+  <form class="join-form">
+      <div class="input-group">
+          <input 
+              type="text" 
+              id="nameTxt" 
+              class="form-input" 
+              placeholder="Enter your name" 
+              [formControl]="name"
+              autocomplete="name"
+          />
+      </div>
+
+      <div class="button-group">
+          <button 
+              type="button" 
+              id="createMeetingBtn" 
+              class="btn btn-primary" 
+              (click)="createRoom()"
+          >
+              New Meeting
+          </button>
+      </div>
+
+      <div class="divider">
+          <span>OR</span>
+      </div>
+
+      <div class="input-group">
+          <input 
+              type="text" 
+              id="meetingIdTxt" 
+              class="form-input" 
+              placeholder="Enter Meeting ID" 
+              [formControl]="roomIdToJoin"
+          />
+      </div>
+
+      <div class="button-group">
+          <button 
+              type="button" 
+              id="joinBtn" 
+              class="btn btn-secondary" 
+              (click)="joinMeeting()"
+          >
+              Join Meeting
+          </button>
+      </div>
+  </form>
+</div>

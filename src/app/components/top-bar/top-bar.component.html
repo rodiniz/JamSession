@@ -1,0 +1,34 @@
+Meeting ID: {{ meetingId }}<br>
+
+<div class="video-toolbar" role="toolbar" aria-label="Video meeting controls">
+  <button class="toolbar-button" [class.active]="isMicOn"
+      [class.inactive]="!isMicOn" (click)="fireToggleMic()"
+  data-tooltip="Toggle Microphone" aria-label="Toggle Microphone">
+      <span class="material-icons">mic</span>
+  </button>
+  
+  <button class="toolbar-button" [class.active]="isWebcamOn"
+      [class.inactive]="!isWebcamOn" (click)="fireToggleWebcam()"
+      data-tooltip="Toggle Webcam" aria-label="Toggle Webcam">  
+      <span class="material-icons">videocam</span>
+  </button> 
+  
+  <button class="toolbar-button"
+      [class.active]="isRecording"
+      [class.inactive]="!isRecording" (click)="fireStartStopRecording()"
+      data-tooltip="Start Recording" aria-label="Start Recording">
+      <span class="material-icons">fiber_manual_record</span> 
+      
+  </button>
+  
+  <button class="toolbar-button" data-tooltip="Chat" aria-label="Open Chat">
+      <span class="material-icons">chat</span>
+  </button>  
+
+  
+  <button class="toolbar-button" (click)="fireLeaveMeeting()" data-tooltip="End Call" aria-label="End Call" style="background-color: #f44336;">
+      <span class="material-icons">call_end</span>
+  </button>
+</div>
+
+

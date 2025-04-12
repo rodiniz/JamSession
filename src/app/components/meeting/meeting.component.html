@@ -1,0 +1,50 @@
+<app-top-bar
+[meetingId]="roomId"
+[isMicOn]="isMicOn"
+[isWebcamOn]="true"
+(toogleWebcam)="toogleWebcam()"
+(toogleMic)="toogleMic()"
+(leaveMeeting)="leaveMeeting()"
+(startRecording)="startStopRecording()"
+#topbar
+></app-top-bar>
+
+<div class="device-settings-bar" role="region" aria-label="Device Settings">
+    <div class="device-selector-group">
+        <div class="device-selector">
+          
+            <select [formControl]="micSelected" id="audioInput" class="device-select" aria-label="Select microphone" (change)="onAudioInputChange()">
+                <option value="">Select microphone</option>
+                @for(mic of mics; track mic.deviceId){
+                    <option value="{{ mic.deviceId }}">{{ mic.label }}</option>
+                }
+            </select>
+        </div>    
+
+       
+    </div>
+
+   
+</div>
+
+<div
+    style="
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      max-height: calc(100vh - 85px);
+    "
+  >
+    <div class="container">
+      <div
+        #participantGridContainer
+        id="participant-grid-container"
+        class="row"
+      ></div>
+      <div
+      #participantScreenShareContainer
+      id="participant-screen-container"
+      style="width:360px;aspect-ratio: 16/9;border-radius: 10px;display: none;"
+      ></div>
+    </div>
+  </div>

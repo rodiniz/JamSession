@@ -1,0 +1,73 @@
+.video-toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2d2d2d;
+    padding: 16px;
+    border-radius: 12px;
+    gap: 16px;
+}
+
+.toolbar-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background-color: #424242;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toolbar-button:hover {
+    background-color: #616161;
+}
+
+.toolbar-button.active {
+    background-color: #f44336;
+}
+
+.toolbar-button:focus {
+    outline: 2px solid #80bdff;
+    outline-offset: 2px;
+}
+
+.toolbar-button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Tooltip styles */
+.toolbar-button {
+    position: relative;
+}
+
+.toolbar-button::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.toolbar-button:hover::after {
+    opacity: 1;
+}
+
+.active-button {
+    background-color: #f44336;
+}
+.inactive-button {
+    background-color: #424242;
+}
